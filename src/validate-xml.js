@@ -1,10 +1,24 @@
-const XML_DATA_PATH = './resources/data.xml'
-const XML_DATA_SCHEMA_PATH = './resources/data.schema.xsd'
+const fs = require('fs');
+const xml2js = require('xml2js');
+const validator = require('is-my-json-valid')
+const XML_DATA_PATH = './resources/customer.xml'
+const CUSTOMER_SCHEMA_PATH = require('./resources/customer.schema.json')
 
-const validator = require('xsd-schema-validator');
+// TODO: convert xml data to json
+fs.readFile(XML_DATA_PATH, function (err, data) {
+    xml2js
+        .parseStringPromise(data, {valueProcessors: [xml2js.processors.parseNumbers]})
+        .then(function (result) {
+            // console.log(JSON.stringify(result, null, 2))
+            // TODO validate result against customer schema
+            const validate1 = validator(CUSTOMER_SCHEMA_PATH)
+            console.log(validate1(result))
 
-// TODO: validate xml file
-validator.validateXML({file: XML_DATA_PATH}, XML_DATA_SCHEMA_PATH,
-    function (err, result) {
-        console.log(result.valid)
-    });
+        })
+        .catch(function (err) {
+            console.error(err)
+        });
+});
+
+
+// map to customer object

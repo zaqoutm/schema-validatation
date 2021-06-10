@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "age": {
+      "type": "integer"
+    },
+    "address": {
+      "type": "object",
+      "properties": {
+        "fees": {
+          "type": "object",
+          "properties": {
+            "dues": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "age"
+  ]
+}
