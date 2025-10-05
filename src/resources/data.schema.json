@@ -9,10 +9,20 @@
     },
     "age": {
       "type": "integer"
+    },
+    "address": {
+      "type": "object",
+      "properties": {
+        "fees": {
+          "type": "object",
+          "properties": {
+            "dues": {
+              "type": "integer"
+            }
+          }
+        }
+      }
     }
   },
-  "required": [
-    "age"
-  ],
-  "additionalProperties": false
+  "required": ["age", "firstName"]
 }

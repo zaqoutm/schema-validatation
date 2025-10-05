@@ -2,7 +2,7 @@
   "name": "shcema-validation",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "www.jendeb.com",
+  "author": "mo zaqout",
   "license": "ISC",
   "dependencies": {
     "ajv": "^8.6.0",

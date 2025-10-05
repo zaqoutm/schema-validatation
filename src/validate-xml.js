@@ -1,24 +1,26 @@
 const fs = require('fs');
 const xml2js = require('xml2js');
-const validator = require('is-my-json-valid')
-const XML_DATA_PATH = './resources/customer.xml'
-const CUSTOMER_SCHEMA_PATH = require('./resources/customer.schema.json')
+const validator = require('is-my-json-valid');
+const XML_DATA_PATH = './resources/data.xml';
+const SCHEMA = require('./resources/data.schema.json');
 
-// TODO: convert xml data to json
 fs.readFile(XML_DATA_PATH, function (err, data) {
-    xml2js
-        .parseStringPromise(data, {valueProcessors: [xml2js.processors.parseNumbers]})
-        .then(function (result) {
-            // console.log(JSON.stringify(result, null, 2))
-            // TODO validate result against customer schema
-            const validate1 = validator(CUSTOMER_SCHEMA_PATH)
-            console.log(validate1(result))
+  // parse xml
+  xml2js.parseString(data, (e, res) => {
+    let user = {};
 
-        })
-        .catch(function (err) {
-            console.error(err)
-        });
+    try {
+      user = {
+        firstName: res.user?.firstName[0],
+        lastName: res.user?.lastName[0],
+        age: parseInt(res.user?.age[0], 10),
+      };
+    } catch (err) {
+      console.error('mapping error!');
+      return;
+    }
+
+    const Validate = validator(SCHEMA);
+    console.log('is it valid?', Validate(user));
+  });
 });
-
-
-// map to customer object

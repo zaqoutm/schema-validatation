@@ -1,0 +1,13 @@
+{
+  "prettier.configPath": ".prettierrc.json",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "tabWidth": 2,
+  "prettier.singleQuote": true,
+  "jsxSingleQuote": true,
+  "editor.formatOnPaste": false,
+  "prettier.useEditorConfig": false,
+  "prettier.useTabs": false,
+  "printWidth": 120,
+  "singleQuote": true
+}

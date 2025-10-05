@@ -1,6 +1,38 @@
+# Created by https://www.toptal.com/developers/gitignore/api/node,macos
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,macos
 
-# Created by https://www.toptal.com/developers/gitignore/api/node
-# Edit at https://www.toptal.com/developers/gitignore?templates=node
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### macOS Patch ###
+# iCloud generated files
+*.icloud
 
 ### Node ###
 # Logs
@@ -10,6 +42,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+.pnpm-debug.log*
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -46,8 +79,8 @@ build/Release
 node_modules/
 jspm_packages/
 
-# TypeScript v1 declaration files
-typings/
+# Snowpack dependency directory (https://snowpack.dev/)
+web_modules/
 
 # TypeScript cache
 *.tsbuildinfo
@@ -76,10 +109,12 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
+# dotenv environment variable files
 .env
-.env.test
-.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -87,18 +122,11 @@ typings/
 
 # Next.js build output
 .next
+out
 
 # Nuxt.js build / generate output
 .nuxt
 dist
-
-# Storybook build outputs
-.out
-.storybook-out
-storybook-static
-
-# rollup.js default build output
-dist/
 
 # Gatsby files
 .cache/
@@ -108,6 +136,12 @@ dist/
 
 # vuepress build output
 .vuepress/dist
+
+# vuepress v2.x temp and cache directory
+.temp
+
+# Docusaurus cache and generated files
+.docusaurus
 
 # Serverless directories
 .serverless/
@@ -124,32 +158,20 @@ dist/
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-# Temporary folders
-tmp/
-temp/
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
 
-# End of https://www.toptal.com/developers/gitignore/api/node
+### Node Patch ###
+# Serverless Webpack directories
+.webpack/
 
+# Optional stylelint cache
 
-# Created by https://www.toptal.com/developers/gitignore/api/sonarqube,sonar
-# Edit at https://www.toptal.com/developers/gitignore?templates=sonarqube,sonar
+# SvelteKit build / generate output
+.svelte-kit
 
-### Sonar ###
-#Sonar generated dir
-/.sonar/
-
-### SonarQube ###
-# SonarQube ignore files.
-#
-# https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner
-# Sonar Scanner working directories
-.sonar/
-.scannerwork/
-
-# http://www.sonarlint.org/commandline/
-# SonarLint working directories, configuration files (including credentials)
-.sonarlint/
-
-*/sonarlint/*
-
-# End of https://www.toptal.com/developers/gitignore/api/sonarqube,sonar
+# End of https://www.toptal.com/developers/gitignore/api/node,macos
